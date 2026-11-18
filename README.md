@@ -38,8 +38,13 @@
 - **`matchRanges` & `fuzzyScore`**：模糊分词切片高亮渲染
 - **`dragThreshold`**：4px 拖拽激活防抖保护
 
-### 4. Agent-First 赋能
-- 每个组件和原子卡片均配备 **「复制 Agent 组装 Prompt」** 与 **「查看 definePrimitive 源码」**，可一键投喂给 Cursor、Claude、Antigravity 等编程智能体。
+### 4. Agent-First 赋能与 Vercel AI SDK 实时组装台
+- **UI SDK AI Agent 组装台 (`/api/agent`)**：基于 Vercel AI SDK v7 `ToolLoopAgent`、`@ai-sdk/react` (`useChat` + `DefaultChatTransport`) 与 **Vercel AI Gateway** (`anthropic/claude-sonnet-5.5`) 构建的多步工具调用智能体：
+  1. `searchBehaviors`：检索 `@ui-sdk/core` 无头行为原语与无障碍保证。
+  2. `inspectBehaviorDoc`：实时读取随包附带的 `node_modules/@ui-sdk/core/docs` Markdown 文档片段。
+  3. `composePrimitive`：输出标准 `definePrimitive` 逻辑层与 `@ui-sdk/react/primitive` `createParts` 渲染层双栏代码，并联动全局 X-Ray HUD。
+- **双模无感运行**：在 Vercel 部署环境（`VERCEL_OIDC_TOKEN`）或配置了 `AI_GATEWAY_API_KEY` 时自动走真实 AI Gateway 模型推理；本地未配密钥时自动降级为免报错确定性 `UIMessageStream` 工具循环演示流。
+- 每个复合组件和原子卡片同时配备 **「复制 Agent 组装 Prompt」** 与 **「查看 definePrimitive 源码」** 快捷弹窗。
 
 ---
 

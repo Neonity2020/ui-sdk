@@ -62,6 +62,13 @@ export function Header({ onOpenAgentModal }: { onOpenAgentModal: (id: string) =>
         {/* Navigation Anchors */}
         <nav className="hidden md:flex items-center gap-6 text-xs text-neutral-600 dark:text-neutral-400 font-medium">
           <a
+            href="#agent-studio"
+            className="flex items-center gap-1 text-blue-600 dark:text-blue-400 hover:opacity-80 transition-opacity font-semibold"
+          >
+            <Sparkles className="w-3.5 h-3.5" />
+            AI Agent 组装台
+          </a>
+          <a
             href="#showcases"
             className="hover:text-black dark:hover:text-white transition-colors"
           >
@@ -73,13 +80,6 @@ export function Header({ onOpenAgentModal }: { onOpenAgentModal: (id: string) =>
           >
             原子 Bento 实验室
           </a>
-          <button
-            onClick={() => onOpenAgentModal("command")}
-            className="flex items-center gap-1 hover:text-black dark:hover:text-white transition-colors"
-          >
-            <Sparkles className="w-3.5 h-3.5 text-blue-500" />
-            Agent 组装 Prompt
-          </button>
         </nav>
 
         {/* Right Controls */}

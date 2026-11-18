@@ -10,8 +10,9 @@ import { DataGridShowcase } from "@/components/showcases/DataGridShowcase";
 import { KanbanShowcase } from "@/components/showcases/KanbanShowcase";
 import { CanvasShowcase } from "@/components/showcases/CanvasShowcase";
 import { BentoLab } from "@/components/bento/BentoLab";
+import { AgentStudio } from "@/components/agent/AgentStudio";
 import { AgentPromptModal } from "@/components/ui/AgentPromptModal";
-import { Sparkles, Layers, Box, Terminal, ExternalLink, Cpu } from "lucide-react";
+import { Sparkles, Layers, Box, ExternalLink, Cpu, Bot } from "lucide-react";
 
 export default function Home() {
   const [activeModalPromptId, setActiveModalPromptId] = useState<string | null>(null);
@@ -27,6 +28,31 @@ export default function Home() {
 
         {/* Main Content Sections */}
         <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 py-12 space-y-20">
+          {/* Section 0: Vercel AI SDK ToolLoopAgent Studio */}
+          <section id="agent-studio" className="space-y-6 scroll-mt-20">
+            <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-neutral-200 dark:border-neutral-800 pb-5">
+              <div>
+                <div className="inline-flex items-center gap-2 text-xs font-mono text-blue-600 dark:text-blue-400 mb-2">
+                  <Bot className="w-4 h-4" />
+                  <span>VERCEL AI SDK · TOOLLOOPAGENT STUDIO</span>
+                </div>
+                <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-neutral-900 dark:text-neutral-100">
+                  UI SDK AI Agent 组装台
+                </h2>
+                <p className="text-sm text-neutral-500 dark:text-neutral-400 mt-1 max-w-2xl">
+                  基于 Vercel AI SDK <code>ToolLoopAgent</code> 与 AI Gateway 构建。自动检索 <code>@ui-sdk/core</code> 原语、查阅本地随包 Markdown 文档并编排无障碍组件源码。
+                </p>
+              </div>
+
+              <div className="text-xs font-mono text-neutral-500 dark:text-neutral-400 flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />
+                <span>开启 X-Ray 可同步观察 Agent 命中的原语</span>
+              </div>
+            </div>
+
+            <AgentStudio />
+          </section>
+
           {/* Section 1: 4 Major Composite Showcases */}
           <section id="showcases" className="space-y-10 scroll-mt-20">
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-neutral-200 dark:border-neutral-800 pb-5">
